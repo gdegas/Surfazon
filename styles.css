@@ -10,6 +10,10 @@
   text-align: center;
 }
 
+.logo {
+  margin-top: 0;
+}
+
 .page {
   background: url(images/background.jpg) center no-repeat;
 }
