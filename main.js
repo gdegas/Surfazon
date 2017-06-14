@@ -54,6 +54,7 @@ function renderItem(surfboard) {
   $divColumn.classList.add('col-sm-4', 'col-xs-12')
 
   var $divPanel = document.createElement('div')
+  $divPanel.classList.add('panel')
   $divPanel.classList.add(surfboard.panelType)
 
   var $divHeading = document.createElement('div')
@@ -75,7 +76,7 @@ function renderItem(surfboard) {
   $divPanel.appendChild($divHeading)
   $divHeading.appendChild($panelTitle)
 
-  $divColumn.appendChild($panelBody)
+  $divPanel.appendChild($panelBody)
   $panelBody.appendChild($divPhoto)
   $divPhoto.appendChild($img)
   $img.setAttribute('src', surfboard.img)
