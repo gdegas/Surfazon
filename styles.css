@@ -12,6 +12,8 @@
 
 .logo {
   margin-top: 0;
+  color: azure;
+  text-decoration: underline;
 }
 
 .page {
@@ -32,4 +34,8 @@ img {
   font-family: 'Open Sans Condensed', sans-serif;
   font-weight: 700;
   font-size: 64px;
+}
+
+.hide {
+  display: none;
 }

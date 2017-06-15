@@ -3,32 +3,68 @@ var $surfboards = [
   {
     name: 'The Shredder',
     panelType: 'panel-primary',
-    img: 'images/surfboard1.jpg'
+    img: 'images/surfboard1.jpg',
+    id: 1,
+    Description: 'Shredds in the morning, shredds in the evening. With \' The Shredder\' you will' +
+    ' become a serious shreddaholic. If you like to look good and have fun while doing it, this' +
+    ' is the board for you.',
+    surfLevel: 'Intermediate-pro',
+    waveType: 'knee high to double overhead'
   },
   {
     name: 'The Articulator',
     panelType: 'panel-success',
-    img: 'images/surfboard2.jpg'
+    img: 'images/surfboard2.jpg',
+    id: 2,
+    Description: 'Shredds in the morning, shredds in the evening. With \' The Shredder\' you will' +
+    ' become a serious shreddaholic. If you like to look good and have fun while doing it, this' +
+    ' is the board for you.',
+    surfLevel: 'Intermediate-pro',
+    waveType: 'knee high to double overhead'
   },
   {
     name: 'The Opportunist',
     panelType: 'panel-info',
-    img: 'images/surfboard3.jpg'
+    img: 'images/surfboard3.jpg',
+    id: 3,
+    Description: 'Shredds in the morning, shredds in the evening. With \' The Shredder\' you will' +
+    ' become a serious shreddaholic. If you like to look good and have fun while doing it, this' +
+    ' is the board for you.',
+    surfLevel: 'Intermediate-pro',
+    waveType: 'knee high to double overhead'
   },
   {
     name: 'The Geriatric',
     panelType: 'panel-warning',
-    img: 'images/surfboard4.jpg'
+    img: 'images/surfboard4.jpg',
+    id: 4,
+    Description: 'Shredds in the morning, shredds in the evening. With \' The Shredder\' you will' +
+    ' become a serious shreddaholic. If you like to look good and have fun while doing it, this' +
+    ' is the board for you.',
+    surfLevel: 'Intermediate-pro',
+    waveType: 'knee high to double overhead'
   },
   {
     name: 'The Bedazzler',
     panelType: 'panel-danger',
-    img: 'images/surfboard5.jpg'
+    img: 'images/surfboard5.jpg',
+    id: 5,
+    Description: 'Shredds in the morning, shredds in the evening. With \' The Shredder\' you will' +
+    ' become a serious shreddaholic. If you like to look good and have fun while doing it, this' +
+    ' is the board for you.',
+    surfLevel: 'Intermediate-pro',
+    waveType: 'knee high to double overhead'
   },
   {
     name: 'The Wave Bandit',
     panelType: 'panel-default',
-    img: 'images/surfboard6.jpg'
+    img: 'images/surfboard6.jpg',
+    id: 6,
+    Description: 'Shredds in the morning, shredds in the evening. With \' The Shredder\' you will' +
+    ' become a serious shreddaholic. If you like to look good and have fun while doing it, this' +
+    ' is the board for you.',
+    surfLevel: 'Intermediate-pro',
+    waveType: 'knee high to double overhead'
   }
 ]
 
