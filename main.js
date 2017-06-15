@@ -1,20 +1,3 @@
-// var $surfboards = [
-//   {
-//     name: 'The Shredder',
-//     size: '6\' 3\"',
-//     wave type: 'Medium to overhead',
-//     targeted level: 'Intermediate to pro'
-//   },
-//   {
-//     name: 'The Articulator',
-//     size: '7\'',
-//     wave type: 'Long and drawn out',
-//     targeted level: 'Noob to seasoned longboarder'
-//   }
-//   {
-//     name: 'The Opportunist'
-//   }
-// ]
 
 var $surfboards = [
   {
