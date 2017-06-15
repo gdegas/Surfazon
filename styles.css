@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+.gallery {
+  margin-top: 2rem;
+}
+
+.photo {
+  text-align: center;
+}
+
+.logo {
+  margin-top: 0;
+}
+
+.page {
+  background: url(images/background.jpg) center no-repeat;
+}
+
+h3 {
+  margin-top: 4rem;
+  font-size: 20px !important;
+}
+
+img {
+  max-width: 100%;
+  height: 350px;
+}
+
+.logo {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 64px;
+}
