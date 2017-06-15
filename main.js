@@ -103,9 +103,21 @@ function renderItem(surfboard) {
   return $divColumn
 }
 
+var $surfboardList = document.querySelector('#surfboard-list')
+
 for (var i = 0; i < $surfboards.length; i++) {
   var surfboard = $surfboards[i]
   var $surfboard = renderItem(surfboard)
-  var $row = document.querySelector('.row')
-  $row.appendChild($surfboard)
+  $surfboardList.appendChild($surfboard)
 }
+
+ // add event listening to the whole container
+ // event.target
+var $container = document.querySelector('.container')
+
+function hide(event) {
+  $surfboardList.classList.add('hide')
+
+}
+
+$container.addEventListener('click', hide)
