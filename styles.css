@@ -44,6 +44,10 @@ img {
   font-size: 17px;
 }
 
-/* .bigger-surfboard {
-  height: 490px;
-} */
+.bigger-surfboard {
+  height: 550px;
+}
+
+.underline {
+  text-decoration: underline;
+}
