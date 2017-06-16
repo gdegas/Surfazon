@@ -111,13 +111,12 @@ for (var i = 0; i < $surfboards.length; i++) {
   $surfboardList.appendChild($surfboard)
 }
 
- // add event listening to the whole container
- // event.target
 var $container = document.querySelector('.container')
 
 function hide(event) {
   $surfboardList.classList.add('hide')
-
 }
 
 $container.addEventListener('click', hide)
+
+// function to renderDetails should have classList.add('bigger-surfboard')
