@@ -9,7 +9,7 @@ var $surfboards = [
     ' become a serious shreddaholic. If you like to look good and have fun while doing it, this' +
     ' is the board for you.',
     surfLevel: 'Intermediate-pro',
-    waveType: 'knee high to double overhead',
+    waveType: 'knee high to double overhead surf',
     price: '$300'
   },
   {
@@ -17,11 +17,12 @@ var $surfboards = [
     panelType: 'panel-success',
     img: 'images/surfboard2.jpg',
     id: '1',
-    description: 'Shredds in the morning, shredds in the evening. With \' The Shredder\' you will' +
-    ' become a serious shreddaholic. If you like to look good and have fun while doing it, this' +
-    ' is the board for you.',
-    surfLevel: 'Intermediate-pro',
-    waveType: 'knee high to double overhead',
+    description: 'Have you ever had a problem with proving your point in an arguement? Ever had to deal' +
+    ' with someone who just doesn\'t understand? Well we have the answer for you, The Articulator will' +
+    ' send the right message to anyone who has problems understanding what you\'re all about. ' +
+     'Look smart and feel good and prove your point in the surf lineup with this beast of a surfboard.',
+    surfLevel: 'Beginner-Intermediate',
+    waveType: 'Ancle high to head-high surf',
     price: '$300'
   },
   {
@@ -29,11 +30,13 @@ var $surfboards = [
     panelType: 'panel-info',
     img: 'images/surfboard3.jpg',
     id: '2',
-    description: 'Shredds in the morning, shredds in the evening. With \' The Shredder\' you will' +
-    ' become a serious shreddaholic. If you like to look good and have fun while doing it, this' +
-    ' is the board for you.',
-    surfLevel: 'Intermediate-pro',
-    waveType: 'knee high to double overhead',
+    description: 'You ever listenened that one Eminem song that talks about you only get one shot and to' +
+    ' never let your chance go, otherwise something something watever is gona happen? Well we have an' +
+    ' answer for that, \'The Opportunist\'. We want you to never miss your chance when that big ride' +
+    ' opportunity comes your way so we encourage you to take full advantage of taking full advantage' +
+    'OPPORTUNITY COMES ONCE IN AN LIFETIME!',
+    surfLevel: 'Intermediate',
+    waveType: 'knee high to overhead',
     price: '$300'
   },
   {
@@ -41,11 +44,13 @@ var $surfboards = [
     panelType: 'panel-warning',
     img: 'images/surfboard4.jpg',
     id: '3',
-    description: 'Shredds in the morning, shredds in the evening. With \' The Shredder\' you will' +
-    ' become a serious shreddaholic. If you like to look good and have fun while doing it, this' +
-    ' is the board for you.',
-    surfLevel: 'Intermediate-pro',
-    waveType: 'knee high to double overhead',
+    description: 'The title says it all, \'The Geriatric\' will have your age turn into nothing but a' +
+    ' number when your out in the water shredding. Young people will see your grey hair and think' +
+    'no way that guy is above 35 years old, impossible. Either with killing it with youngins or just' +
+    ' having a grand old cruise on your own, you can\'t miss the chance to the fountain of youth with' +
+    '\'The Geriatric\'',
+    surfLevel: 'Beginner-Intermediate',
+    waveType: 'knee high to chest high',
     price: '$300'
   },
   {
@@ -53,11 +58,13 @@ var $surfboards = [
     panelType: 'panel-danger',
     img: 'images/surfboard5.jpg',
     id: '4',
-    description: 'Shredds in the morning, shredds in the evening. With \' The Shredder\' you will' +
-    ' become a serious shreddaholic. If you like to look good and have fun while doing it, this' +
-    ' is the board for you.',
+    description: 'Bedazzle your way to glory on \'The Bedazzler\'. Do not let the flamboyant color fool you' +
+    ' , this surfboard has the ability to mesmorize all walks of life, including the female species!' +
+    'I like to think of the ride on a Bedazzler as similar to an Aladdin magic carpet ride,' +
+    ' you have the wind blowing through your hair as your impressing the finest of princesses through' +
+    ' a magical experience. If you don\'t like Disney or Alladdin, just think babes',
     surfLevel: 'Intermediate-pro',
-    waveType: 'knee high to double overhead',
+    waveType: 'Chest high to overhead',
     price: '$300'
   },
   {
@@ -65,11 +72,13 @@ var $surfboards = [
     panelType: 'panel-default',
     img: 'images/surfboard6.jpg',
     id: '5',
-    description: 'Shredds in the morning, shredds in the evening. With \' The Shredder\' you will' +
-    ' become a serious shreddaholic. If you like to look good and have fun while doing it, this' +
-    ' is the board for you.',
+    description: 'Now here at Surf-azon, we don\'t condone stealing, its really just bad Karma after all, but if you\'re' +
+    ' Going to steal, at least steal from the rich and give to the poor: yourself. \'The Wave Bandit\' will provide that' +
+    ' experience for you. Feel like Robbin Hood while you shread from coast to cast on the flyest of mini-shredders. But' +
+    ' if you end up in a tussle because someone doesn\'t like the idea of you banditing their wave, just tellem its for' +
+    ' a good cause!',
     surfLevel: 'Intermediate-pro',
-    waveType: 'knee high to double overhead',
+    waveType: 'knee high to head high',
     price: '$300'
   }
 ]
@@ -86,7 +95,7 @@ function renderItem(surfboard) {
   $divHeading.classList.add('panel-heading')
 
   var $panelTitle = document.createElement('h3')
-  $panelTitle.classList.add('panel-title', 'text-center')
+  $panelTitle.classList.add('panel-title', 'text-center', 'pointer')
   $panelTitle.setAttribute('data-id', surfboard.id)
   $panelTitle.textContent = surfboard.name
 
@@ -97,6 +106,8 @@ function renderItem(surfboard) {
   $divPhoto.classList.add('photo')
 
   var $img = document.createElement('img')
+  $img.setAttribute('data-id', surfboard.id)
+  $img.classList.add('pointer')
 
   $divColumn.appendChild($divPanel)
   $divPanel.appendChild($divHeading)
