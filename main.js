@@ -149,33 +149,6 @@ function findBoard(id, surfboards) {
 }
 
 function renderDescription(surfboard) {
-/* <div class="panel panel-default">
-  <div class="panel-body">
-    <div class="row">
-        <div class="col-xs-6 description-text">
-          <h2>The Shredder</h2>
-          <hr />
-          <p class="product-description"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mi elit, pellentesque nec ante in, maximus dignissim ipsum. Vivamus mattis leo nisi, at iaculis nisl accumsan vitae. Aenean porttitor, urna non porttitor dictum, velit diam convallis dui, a condimentum erat justo quis nibh. Mauris porta aliquam erat sed rhoncus. Nulla iaculis commodo neque. Aliquam erat volutpat. Pellentesque tortor lectus, laoreet in iaculis ac, blandit eget massa. Praesent eget malesuada orci. Aliquam id arcu sit amet justo ullamcorper tincidunt. Nulla facilisi. Aenean at varius sem. Sed vehicula pharetra nibh, in pulvinar lacus sagittis id.
-          </p>
-
-          <p class="product-description"><u>Surf Level : Intermediate-Pro</u></p>
-
-          <p class="product-description"><u>Wave Type : Knee high to double overhead</u></p>
-
-          <h3>$300</h3>
-
-          <button class="btn btn-default btn-large" type="submit">Add to Cart</button>
-          <button class="btn btn-default btn-large" type="submit">Checkout</button>
-        </div>
-      <div class="col-xs-6">
-        <div class="photo">
-          <img src="images/surfboard1.jpg" alt="surfboard" />
-        </div>
-      </div>
-    </div>
-  </div>
-</div> */
-
   var $panel = document.createElement('div')
   $panel.classList.add('panel')
   $panel.classList.add(surfboard.panelType)
