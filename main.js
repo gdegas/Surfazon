@@ -4,7 +4,7 @@ var $surfboards = [
     name: 'The Shredder',
     panelType: 'panel-primary',
     img: 'images/surfboard1.jpg',
-    id: '1',
+    id: '0',
     description: 'Shredds in the morning, shredds in the evening. With \' The Shredder\' you will' +
     ' become a serious shreddaholic. If you like to look good and have fun while doing it, this' +
     ' is the board for you.',
@@ -16,7 +16,7 @@ var $surfboards = [
     name: 'The Articulator',
     panelType: 'panel-success',
     img: 'images/surfboard2.jpg',
-    id: '2',
+    id: '1',
     description: 'Shredds in the morning, shredds in the evening. With \' The Shredder\' you will' +
     ' become a serious shreddaholic. If you like to look good and have fun while doing it, this' +
     ' is the board for you.',
@@ -28,7 +28,7 @@ var $surfboards = [
     name: 'The Opportunist',
     panelType: 'panel-info',
     img: 'images/surfboard3.jpg',
-    id: '3',
+    id: '2',
     description: 'Shredds in the morning, shredds in the evening. With \' The Shredder\' you will' +
     ' become a serious shreddaholic. If you like to look good and have fun while doing it, this' +
     ' is the board for you.',
@@ -40,7 +40,7 @@ var $surfboards = [
     name: 'The Geriatric',
     panelType: 'panel-warning',
     img: 'images/surfboard4.jpg',
-    id: '4',
+    id: '3',
     description: 'Shredds in the morning, shredds in the evening. With \' The Shredder\' you will' +
     ' become a serious shreddaholic. If you like to look good and have fun while doing it, this' +
     ' is the board for you.',
@@ -52,7 +52,7 @@ var $surfboards = [
     name: 'The Bedazzler',
     panelType: 'panel-danger',
     img: 'images/surfboard5.jpg',
-    id: '5',
+    id: '4',
     description: 'Shredds in the morning, shredds in the evening. With \' The Shredder\' you will' +
     ' become a serious shreddaholic. If you like to look good and have fun while doing it, this' +
     ' is the board for you.',
@@ -64,7 +64,7 @@ var $surfboards = [
     name: 'The Wave Bandit',
     panelType: 'panel-default',
     img: 'images/surfboard6.jpg',
-    id: '6',
+    id: '5',
     description: 'Shredds in the morning, shredds in the evening. With \' The Shredder\' you will' +
     ' become a serious shreddaholic. If you like to look good and have fun while doing it, this' +
     ' is the board for you.',
@@ -122,7 +122,7 @@ for (var i = 0; i < $surfboards.length; i++) {
 
 $container.addEventListener('click', function (event) {
   var id = event.target.getAttribute('data-id')
-  var surfboard = findBoard(id, $surfboards) // returns the surfboard from the array that has that id
+  var surfboard = findBoard(id, $surfboards)
   var $details = renderDescription(surfboard)
   $surfboardList.classList.add('hide')
   $surfboardDescription.appendChild($details)
@@ -167,6 +167,7 @@ function renderDescription(surfboard) {
 
   var $panel = document.createElement('div')
   $panel.classList.add('panel')
+  $panel.classList.add(surfboard.panelType)
 
   var $panelBody = document.createElement('div')
   $panelBody.classList.add('panel-body')
@@ -190,11 +191,12 @@ function renderDescription(surfboard) {
   $paragraph.textContent = surfboard.description
 
   var $surfLevel = document.createElement('p')
-  $surfLevel.textContent = surfboard.surfLevel
+  $surfLevel.textContent = 'Surf Level: ' + surfboard.surfLevel
   $surfLevel.classList.add('underline')
 
   var $waveType = document.createElement('p')
-  $waveType.textContent = surfboard.waveType
+  $waveType.textContent = 'Wave type: ' + surfboard.waveType
+  $waveType.classList.add('underline')
 
   var $price = document.createElement('h3')
   $price.textContent = surfboard.price
