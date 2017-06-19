@@ -12,9 +12,11 @@
 
 .logo {
   margin-top: 0;
+  color: azure;
+  text-decoration: underline;
 }
 
-.page {
+body {
   background: url(images/background.jpg) center no-repeat;
 }
 
@@ -32,4 +34,24 @@ img {
   font-family: 'Open Sans Condensed', sans-serif;
   font-weight: 700;
   font-size: 64px;
+}
+
+.hide {
+  display: none;
+}
+
+.product-description {
+  font-size: 17px;
+}
+
+.bigger-surfboard {
+  height: 550px;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.pointer {
+  cursor: pointer;
 }
