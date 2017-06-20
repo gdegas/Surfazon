@@ -85,6 +85,10 @@ var $surfboards = [
 
 var cart = {}
 
+var $surfboardDescription = document.querySelector('#surfboard-description')
+var $surfboardList = document.querySelector('#surfboard-list')
+var $container = document.querySelector('.container')
+
 function renderItem(surfboard) {
   var $divColumn = document.createElement('div')
   $divColumn.classList.add('col-sm-4', 'col-xs-12')
@@ -122,10 +126,6 @@ function renderItem(surfboard) {
 
   return $divColumn
 }
-
-var $surfboardDescription = document.querySelector('#surfboard-description')
-var $surfboardList = document.querySelector('#surfboard-list')
-var $container = document.querySelector('.container')
 
 for (var i = 0; i < $surfboards.length; i++) {
   var surfboard = $surfboards[i]
@@ -205,6 +205,10 @@ function renderDescription(surfboard) {
   $image.setAttribute('src', surfboard.img)
   $image.classList.add('bigger-surfboard')
 
+  var $cartImage = document.createElement('img')
+  $cartImage.setAttribute('src', 'images/cart.png')
+  $cartImage.classList.add('cart-image')
+
   $panel.appendChild($panelBody)
   $panelBody.appendChild($row)
   $row.appendChild($column1)
@@ -222,13 +226,41 @@ function renderDescription(surfboard) {
   $photoDiv.appendChild($image)
 
   $addCart.addEventListener('click', function (event) {
+    getCartQuantity(cart)
     if (cart[surfboard.id] !== undefined) {
       cart[surfboard.id].quantity += 1
     }
     else {
       cart[surfboard.id] = {quantity: 1}
     }
+    addToCart()
   })
 
+  function addToCart() {
+
+    var $count = document.createElement('span')
+    var $number = cart[surfboard.id].quantity
+
+    $count.textContent += $number
+
+  }
   return $panel
+}
+
+// function addCart() {
+//   // make quantity number equal to the quantity value in cart item
+//   var $count = document.createElement('span')
+//   var $number = cart[surfboard.id].quantity
+//
+//   $count.textContent += $number
+//
+//   console.log($count)
+// }
+
+function getCartQuantity(cart) {
+  var quantity = 0
+  for (var surfboardId in cart) {
+    cart[surfboardId].quantity = cart[surfboardId]
+  }
+  console.log(quantity)
 }
