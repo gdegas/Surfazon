@@ -83,6 +83,8 @@ var $surfboards = [
   }
 ]
 
+var cart = {}
+
 function renderItem(surfboard) {
   var $divColumn = document.createElement('div')
   $divColumn.classList.add('col-sm-4', 'col-xs-12')
@@ -133,6 +135,9 @@ for (var i = 0; i < $surfboards.length; i++) {
 
 $container.addEventListener('click', function (event) {
   var id = event.target.getAttribute('data-id')
+  if (id === null) {
+    return
+  }
   var surfboard = findBoard(id, $surfboards)
   var $details = renderDescription(surfboard)
   $surfboardList.classList.add('hide')
@@ -215,6 +220,15 @@ function renderDescription(surfboard) {
   $row.appendChild($column2)
   $column2.appendChild($photoDiv)
   $photoDiv.appendChild($image)
+
+  $addCart.addEventListener('click', function (event) {
+    if (cart[surfboard.id] !== undefined) {
+      cart[surfboard.id].quantity += 1
+    }
+    else {
+      cart[surfboard.id] = {quantity: 1}
+    }
+  })
 
   return $panel
 }
