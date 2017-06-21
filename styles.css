@@ -14,6 +14,9 @@
   margin-top: 0;
   color: azure;
   text-decoration: underline;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 64px;
 }
 
 body {
@@ -28,12 +31,6 @@ h3 {
 img {
   max-width: 100%;
   height: 350px;
-}
-
-.logo {
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-weight: 700;
-  font-size: 64px;
 }
 
 .hide {
@@ -59,3 +56,10 @@ img {
 /* .cart-image {
   float: right;
 } */
+
+.cart-logo {
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  color: black;
+}

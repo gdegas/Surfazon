@@ -5,7 +5,7 @@ var $surfboards = [
     panelType: 'panel-primary',
     img: 'images/surfboard1.jpg',
     id: '0',
-    description: 'Shredds in the morning, shredds in the evening. With \' The Shredder\' you will' +
+    description: 'Shredds in the morning, shredds in the evening. With \'The Shredder\' you will' +
     ' become a serious shreddaholic. If you like to look good and have fun while doing it, this' +
     ' is the board for you.',
     surfLevel: 'Intermediate-pro',
@@ -88,6 +88,10 @@ var cart = {}
 var $surfboardDescription = document.querySelector('#surfboard-description')
 var $surfboardList = document.querySelector('#surfboard-list')
 var $container = document.querySelector('.container')
+var $logo = document.getElementById('logo')
+var $view = document.querySelectorAll('.view')
+var $cartSpan = document.createElement('span')
+var $cart = document.createElement('span')
 
 function renderItem(surfboard) {
   var $divColumn = document.createElement('div')
@@ -226,41 +230,43 @@ function renderDescription(surfboard) {
   $photoDiv.appendChild($image)
 
   $addCart.addEventListener('click', function (event) {
-    getCartQuantity(cart)
     if (cart[surfboard.id] !== undefined) {
       cart[surfboard.id].quantity += 1
     }
     else {
       cart[surfboard.id] = {quantity: 1}
     }
-    addToCart()
+    var $quantity = getCartQuantity(cart)
+    var $cart = renderCart($quantity)
+    $logo.appendChild($cart)
   })
 
-  function addToCart() {
-
-    var $count = document.createElement('span')
-    var $number = cart[surfboard.id].quantity
-
-    $count.textContent += $number
-
-  }
   return $panel
 }
 
-// function addCart() {
-//   // make quantity number equal to the quantity value in cart item
-//   var $count = document.createElement('span')
-//   var $number = cart[surfboard.id].quantity
-//
-//   $count.textContent += $number
-//
-//   console.log($count)
-// }
+// brings you back to homepagen when click on logo
+$logo.addEventListener('click', function (event) {
+  var id = event.target.getAttribute('data-id')
+  for (var i = 0; i < $view.length; i++) {
+    if ($view[i].id === id) {
+      $view[i].classList.remove('hide')
+      $surfboardDescription.classList.add('hide')
+    }
+  }
+})
+
+function renderCart(cartQuantity) {
+  $cartSpan.classList.add('cart-logo')
+  $cart.classList.add('glyphicon', 'glyphicon-shopping-cart')
+  $cartSpan.appendChild($cart)
+  $cart.textContent = cartQuantity
+  return $cartSpan
+}
 
 function getCartQuantity(cart) {
   var quantity = 0
   for (var surfboardId in cart) {
-    cart[surfboardId].quantity = cart[surfboardId]
+    quantity += cart[surfboardId].quantity
   }
-  console.log(quantity)
+  return quantity
 }
