@@ -255,21 +255,10 @@ function returnHome() {
     }
   }
 }
-// add class hide to everything that isn't the list
 
 $logo.addEventListener('click', returnHome)
 
-// function renderCart(cartQuantity) {
-//   $cartSpan.classList.add('cart-logo')
-//   $cart.classList.add('glyphicon', 'glyphicon-shopping-cart')
-//   $cartSpan.appendChild($cart)
-//   $cartSpan.appendChild($cartQuantity)
-//   $cartQuantity.textContent = cartQuantity
-//   return $cartSpan
-// }
-
 function renderCart(cartQuantity) {
-//  $cartSpan.classList.add('cart-logo')
   $cart.classList.add('glyphicon', 'glyphicon-shopping-cart')
   $cartSpan.appendChild($cart)
   $cart.classList.add('cart-logo')
