@@ -199,9 +199,9 @@ function renderDescription(surfboard) {
   $addCart.classList.add('btn', 'btn-default', 'btn-large')
   $addCart.textContent = 'Add to Cart'
 
-  var $checkout = document.createElement('button')
-  $checkout.classList.add('btn', 'btn-default', 'btn-large')
-  $checkout.textContent = 'Checkout'
+  var $viewCart = document.createElement('button')
+  $viewCart.classList.add('btn', 'btn-default', 'btn-large')
+  $viewCart.textContent = 'View Cart'
 
   var $photoDiv = document.createElement('div')
   $photoDiv.classList.add('photo')
@@ -224,6 +224,7 @@ function renderDescription(surfboard) {
   $column1.appendChild($waveType)
   $column1.appendChild($price)
   $column1.appendChild($addCart)
+  $column1.appendChild($viewCart)
 
   $row.appendChild($column2)
   $column2.appendChild($photoDiv)
