@@ -92,6 +92,7 @@ var $logo = document.getElementById('logo')
 var $view = document.querySelectorAll('.view')
 var $cartSpan = document.createElement('span')
 var $cart = document.createElement('span')
+var $cartQuantity = document.createElement('span')
 
 function renderItem(surfboard) {
   var $divColumn = document.createElement('div')
@@ -223,7 +224,6 @@ function renderDescription(surfboard) {
   $column1.appendChild($waveType)
   $column1.appendChild($price)
   $column1.appendChild($addCart)
-  $column1.appendChild($checkout)
 
   $row.appendChild($column2)
   $column2.appendChild($photoDiv)
@@ -244,22 +244,38 @@ function renderDescription(surfboard) {
   return $panel
 }
 
-// brings you back to homepagen when click on logo
-$logo.addEventListener('click', function (event) {
-  var id = event.target.getAttribute('data-id')
+function returnHome() {
   for (var i = 0; i < $view.length; i++) {
-    if ($view[i].id === id) {
+    if ($view[i] === $surfboardList) {
       $view[i].classList.remove('hide')
-      $surfboardDescription.classList.add('hide')
+    }
+    else {
+      $view[i].classList.add('hide')
+      $surfboardDescription.innerHTML = ''
     }
   }
-})
+}
+// add class hide to everything that isn't the list
+
+$logo.addEventListener('click', returnHome)
+
+// function renderCart(cartQuantity) {
+//   $cartSpan.classList.add('cart-logo')
+//   $cart.classList.add('glyphicon', 'glyphicon-shopping-cart')
+//   $cartSpan.appendChild($cart)
+//   $cartSpan.appendChild($cartQuantity)
+//   $cartQuantity.textContent = cartQuantity
+//   return $cartSpan
+// }
 
 function renderCart(cartQuantity) {
-  $cartSpan.classList.add('cart-logo')
+//  $cartSpan.classList.add('cart-logo')
   $cart.classList.add('glyphicon', 'glyphicon-shopping-cart')
   $cartSpan.appendChild($cart)
-  $cart.textContent = cartQuantity
+  $cart.classList.add('cart-logo')
+  document.body.appendChild($cartQuantity)
+  $cartQuantity.textContent = cartQuantity
+  $cartQuantity.setAttribute('id', 'cart-number')
   return $cartSpan
 }
 

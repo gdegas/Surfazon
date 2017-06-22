@@ -53,13 +53,18 @@ img {
   cursor: pointer;
 }
 
-/* .cart-image {
-  float: right;
-} */
-
 .cart-logo {
   position: fixed;
-  top: 5px;
-  right: 5px;
+  top: 14px;
+  right: 9px;
+  color: navajowhite;
+  font-size: 50px;
+}
+
+#cart-number {
+  font-size: 20px;
   color: black;
+  position: fixed;
+  top: 21px;
+  right: 26px;
 }
