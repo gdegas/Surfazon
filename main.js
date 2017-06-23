@@ -83,7 +83,6 @@ var $surfboards = [
   }
 ]
 
-var cartItems = []
 var cart = {}
 var $surfboardDescription = document.querySelector('#surfboard-description')
 var $surfboardList = document.querySelector('#surfboard-list')
@@ -158,6 +157,7 @@ function findBoard(id, surfboards) {
 }
 
 function getCartItems(cart) {
+  var cartItems = []
   for (var id in cart) {
     cartItems.push(cart[id])
   }
@@ -242,11 +242,15 @@ function renderDescription(surfboard) {
   })
 
   $viewCart.addEventListener('click', function (event) {
-    getCartItems(cart)
+    var $items = document.getElementById('items')
+    $items.innerHTML = ''
+    var cartItems = getCartItems(cart)
     for (var i = 0; i < cartItems.length; i++) {
       var cartItem = cartItems[i]
-      var $cart = renderCart(cartItem)
-      $mainCart.appendChild($cart)
+      var $cartItem = renderCartItem(cartItem)
+      $surfboardDescription.classList.add('hide')
+      $items.appendChild($cartItem)
+      $mainCart.classList.remove('hide')
     }
   })
 
@@ -270,82 +274,43 @@ function addToCart(surfboard) {
   $logo.appendChild($cart)
 }
 
-function renderCart(cartItems) {
-  // <div class="panel panel-default">
-  //   <div class="panel-heading">
-  //     <div class="panel-title">
-  //       <h2 class="text-center">My Cart</h2>
-  //     </div>
-  //   </div>
-  //   <div class="panel-body">
-  //     <div class="col-sm-6">
-  //       Item
-  //     </div>
-  //     <div class="col-sm-3">
-  //       Quantity
-  //     </div>
-  //     <div class="col-sm-3">
-  //       Price
-  //     </div>
-  //     <div class="col-xs-12">
-  //       <hr />
-  //     </div>
-  //   </div>
-  // </div>
+function renderCartItem(cartItem) {
 
-  var $panel = document.createElement('div')
-  $panel.classList.add('panel', 'panel-default')
+  var $hr = document.createElement('hr')
+  var $row = document.createElement('div')
+  $row.classList.add('row')
 
-  var $panelBody = document.createElement('div')
-  $panelBody.classList.add('panel-body')
-
-  var $panelHeading = document.createElement('div')
-  $panelHeading.classList.add('panel-heading')
-
-  var $panelTitle = document.createElement('div')
-  $panelTitle.classList.add('panel-title')
-
-  var $heading = document.createElement('h2')
-  $heading.classList.add('text-center')
-  $heading.textContent = 'My Cart'
-
-  var $column1 = document.createElement('div')
-  $column1.classList.add('col-xs-3')
-  $column1.setAttribute('id', 'cart-images')
+  var $img = document.createElement('img')
+  var $divColumn1 = document.createElement('div')
+  $divColumn1.classList.add('col-xs-3')
+  $img.setAttribute('src', cartItem.image)
+  $img.classList.add('img-responsive')
 
   var $column2 = document.createElement('div')
   $column2.classList.add('col-xs-5')
-  $column2.setAttribute('id', 'cart-name')
-  $column2.textContent = 'Name'
+  $column2.textContent = cartItem.name
 
   var $column3 = document.createElement('div')
   $column3.classList.add('col-xs-2')
-  $column3.setAttribute('id', 'cart-price')
-  $column3.textContent = 'Price'
+  $column3.textContent = cartItem.price
 
   var $column4 = document.createElement('div')
   $column4.classList.add('col-xs-2')
-  $column4.setAttribute('id', 'cart-quantity')
-  $column2.textContent = 'Quantity'
+  $column4.textContent = cartItem.quantity
 
   var $hrDiv = document.createElement('div')
   $hrDiv.classList.add('col-xs-12')
-
-  var $hr = document.createElement('hr')
-  var $h2 = document.createElement('h2')
-  $h2.textContent = 'My Cart'
-
-  $panel.appendChild($panelHeading)
-  $panelHeading.appendChild($panelTitle)
-  $panelTitle.appendChild($h2)
-  $panel.appendChild($panelBody)
-  $panelBody.appendChild($column1)
-  $panelBody.appendChild($column2)
-  $panelBody.appendChild($column3)
-  $panelBody.appendChild($column4)
-  $panelBody.appendChild($hrDiv)
   $hrDiv.appendChild($hr)
-  return $panel
+
+  $divColumn1.appendChild($img)
+  $row.appendChild($divColumn1)
+  $row.appendChild($column2)
+  $row.appendChild($column3)
+  $row.appendChild($column4)
+  $row.appendChild($hrDiv)
+
+  return $row
+
 }
 
 function returnHome() {
