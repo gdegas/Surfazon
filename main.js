@@ -87,10 +87,12 @@ var cart = {}
 var $surfboardDescription = document.querySelector('#surfboard-description')
 var $surfboardList = document.querySelector('#surfboard-list')
 var $container = document.querySelector('.container')
-var $logo = document.getElementById('logo')
+var $logoDiv = document.getElementById('logo')
+var $logoClick = document.getElementById('logo-click')
 var $view = document.querySelectorAll('.view')
 var $mainCart = document.getElementById('shopping-cart')
 var $cartQuantity = document.createElement('span')
+var $galleryTitle = document.getElementById('gallery-title')
 
 function renderItem(surfboard) {
   var $divColumn = document.createElement('div')
@@ -144,6 +146,7 @@ $container.addEventListener('click', function (event) {
   var surfboard = findBoard(id, $surfboards)
   var $details = renderDescription(surfboard)
   $surfboardList.classList.add('hide')
+  $galleryTitle.classList.add('hide')
   $surfboardDescription.appendChild($details)
   $surfboardDescription.classList.remove('hide')
 })
@@ -248,6 +251,7 @@ function renderDescription(surfboard) {
     for (var i = 0; i < cartItems.length; i++) {
       var cartItem = cartItems[i]
       var $cartItem = renderCartItem(cartItem)
+      $galleryTitle.classList.add('hide')
       $surfboardDescription.classList.add('hide')
       $items.appendChild($cartItem)
       $mainCart.classList.remove('hide')
@@ -271,7 +275,7 @@ function addToCart(surfboard) {
   }
   var $quantity = getCartQuantity(cart)
   var $cart = renderCartIcon($quantity)
-  $logo.appendChild($cart)
+  $logoDiv.appendChild($cart)
 }
 
 function renderCartItem(cartItem) {
@@ -317,6 +321,7 @@ function returnHome() {
   for (var i = 0; i < $view.length; i++) {
     if ($view[i] === $surfboardList) {
       $view[i].classList.remove('hide')
+      $galleryTitle.classList.remove('hide')
     }
     else {
       $view[i].classList.add('hide')
@@ -325,7 +330,18 @@ function returnHome() {
   }
 }
 
-$logo.addEventListener('click', returnHome)
+function returnToCart() {
+  for (var i = 0; i < $view.length; i++) {
+    if ($view[i] === $mainCart) {
+      $view[i].classList.remove('hide')
+    }
+    else {
+      $view[i].classList.add('hide')
+    }
+  }
+}
+
+$logoClick.addEventListener('click', returnHome)
 
 function renderCartIcon(cartQuantity) {
   var $cartSpan = document.createElement('span')
@@ -336,6 +352,9 @@ function renderCartIcon(cartQuantity) {
   document.body.appendChild($cartQuantity)
   $cartQuantity.textContent = cartQuantity
   $cartQuantity.setAttribute('id', 'cart-number')
+
+  $cart.addEventListener('click', returnToCart)
+
   return $cartSpan
 }
 
