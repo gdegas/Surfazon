@@ -83,15 +83,14 @@ var $surfboards = [
   }
 ]
 
+var cartItems = []
 var cart = {}
-
 var $surfboardDescription = document.querySelector('#surfboard-description')
 var $surfboardList = document.querySelector('#surfboard-list')
 var $container = document.querySelector('.container')
 var $logo = document.getElementById('logo')
 var $view = document.querySelectorAll('.view')
-var $cartSpan = document.createElement('span')
-var $cart = document.createElement('span')
+var $mainCart = document.getElementById('shopping-cart')
 var $cartQuantity = document.createElement('span')
 
 function renderItem(surfboard) {
@@ -156,6 +155,13 @@ function findBoard(id, surfboards) {
       return surfboards[i]
     }
   }
+}
+
+function getCartItems(cart) {
+  for (var id in cart) {
+    cartItems.push(cart[id])
+  }
+  return cartItems
 }
 
 function renderDescription(surfboard) {
@@ -231,17 +237,114 @@ function renderDescription(surfboard) {
   $photoDiv.appendChild($image)
 
   $addCart.addEventListener('click', function (event) {
-    if (cart[surfboard.id] !== undefined) {
-      cart[surfboard.id].quantity += 1
-    }
-    else {
-      cart[surfboard.id] = {quantity: 1}
-    }
-    var $quantity = getCartQuantity(cart)
-    var $cart = renderCart($quantity)
-    $logo.appendChild($cart)
+    addToCart(surfboard)
+
   })
 
+  $viewCart.addEventListener('click', function (event) {
+    getCartItems(cart)
+    for (var i = 0; i < cartItems.length; i++) {
+      var cartItem = cartItems[i]
+      var $cart = renderCart(cartItem)
+      $mainCart.appendChild($cart)
+    }
+  })
+
+  return $panel
+}
+
+function addToCart(surfboard) {
+  if (cart[surfboard.id] !== undefined) {
+    cart[surfboard.id].quantity += 1
+  }
+  else {
+    cart[surfboard.id] = {
+      quantity: 1,
+      name: surfboard.name,
+      image: surfboard.img,
+      price: surfboard.price
+    }
+  }
+  var $quantity = getCartQuantity(cart)
+  var $cart = renderCartIcon($quantity)
+  $logo.appendChild($cart)
+}
+
+function renderCart(cartItems) {
+  // <div class="panel panel-default">
+  //   <div class="panel-heading">
+  //     <div class="panel-title">
+  //       <h2 class="text-center">My Cart</h2>
+  //     </div>
+  //   </div>
+  //   <div class="panel-body">
+  //     <div class="col-sm-6">
+  //       Item
+  //     </div>
+  //     <div class="col-sm-3">
+  //       Quantity
+  //     </div>
+  //     <div class="col-sm-3">
+  //       Price
+  //     </div>
+  //     <div class="col-xs-12">
+  //       <hr />
+  //     </div>
+  //   </div>
+  // </div>
+
+  var $panel = document.createElement('div')
+  $panel.classList.add('panel', 'panel-default')
+
+  var $panelBody = document.createElement('div')
+  $panelBody.classList.add('panel-body')
+
+  var $panelHeading = document.createElement('div')
+  $panelHeading.classList.add('panel-heading')
+
+  var $panelTitle = document.createElement('div')
+  $panelTitle.classList.add('panel-title')
+
+  var $heading = document.createElement('h2')
+  $heading.classList.add('text-center')
+  $heading.textContent = 'My Cart'
+
+  var $column1 = document.createElement('div')
+  $column1.classList.add('col-xs-3')
+  $column1.setAttribute('id', 'cart-images')
+
+  var $column2 = document.createElement('div')
+  $column2.classList.add('col-xs-5')
+  $column2.setAttribute('id', 'cart-name')
+  $column2.textContent = 'Name'
+
+  var $column3 = document.createElement('div')
+  $column3.classList.add('col-xs-2')
+  $column3.setAttribute('id', 'cart-price')
+  $column3.textContent = 'Price'
+
+  var $column4 = document.createElement('div')
+  $column4.classList.add('col-xs-2')
+  $column4.setAttribute('id', 'cart-quantity')
+  $column2.textContent = 'Quantity'
+
+  var $hrDiv = document.createElement('div')
+  $hrDiv.classList.add('col-xs-12')
+
+  var $hr = document.createElement('hr')
+  var $h2 = document.createElement('h2')
+  $h2.textContent = 'My Cart'
+
+  $panel.appendChild($panelHeading)
+  $panelHeading.appendChild($panelTitle)
+  $panelTitle.appendChild($h2)
+  $panel.appendChild($panelBody)
+  $panelBody.appendChild($column1)
+  $panelBody.appendChild($column2)
+  $panelBody.appendChild($column3)
+  $panelBody.appendChild($column4)
+  $panelBody.appendChild($hrDiv)
+  $hrDiv.appendChild($hr)
   return $panel
 }
 
@@ -259,7 +362,9 @@ function returnHome() {
 
 $logo.addEventListener('click', returnHome)
 
-function renderCart(cartQuantity) {
+function renderCartIcon(cartQuantity) {
+  var $cartSpan = document.createElement('span')
+  var $cart = document.createElement('span')
   $cart.classList.add('glyphicon', 'glyphicon-shopping-cart')
   $cartSpan.appendChild($cart)
   $cart.classList.add('cart-logo')
