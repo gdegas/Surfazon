@@ -247,6 +247,8 @@ function renderDescription(surfboard) {
   $viewCart.addEventListener('click', function (event) {
     var $items = document.getElementById('items')
     $items.innerHTML = ''
+    var $subtotal = document.getElementById('subtotal')
+    $subtotal.textContent = getCartSubtotal(cart)
     var cartItems = getCartItems(cart)
     for (var i = 0; i < cartItems.length; i++) {
       var cartItem = cartItems[i]
@@ -314,7 +316,6 @@ function renderCartItem(cartItem) {
   $row.appendChild($hrDiv)
 
   return $row
-
 }
 
 function returnHome() {
@@ -364,4 +365,15 @@ function getCartQuantity(cart) {
     quantity += cart[surfboardId].quantity
   }
   return quantity
+}
+
+function getCartSubtotal(cart) {
+  var subtotal = 0
+  for (var surfboardId in cart) {
+    var price = cart[surfboardId].price
+    let split = price.split('$')
+    let number = Number(split[1])
+    subtotal += number * cart[surfboardId].quantity
+  }
+  return '$' + subtotal
 }
