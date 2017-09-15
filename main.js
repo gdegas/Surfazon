@@ -10,7 +10,7 @@ var $surfboards = [
     ' is the board for you.',
     surfLevel: 'Intermediate-pro',
     waveType: 'knee high to double overhead surf',
-    price: '$300'
+    price: '$200'
   },
   {
     name: 'The Articulator',
@@ -37,7 +37,7 @@ var $surfboards = [
     'OPPORTUNITY COMES ONCE IN AN LIFETIME!',
     surfLevel: 'Intermediate',
     waveType: 'knee high to overhead',
-    price: '$300'
+    price: '$350'
   },
   {
     name: 'The Geriatric',
@@ -51,7 +51,7 @@ var $surfboards = [
     '\'The Geriatric\'',
     surfLevel: 'Beginner-Intermediate',
     waveType: 'knee high to chest high',
-    price: '$300'
+    price: '$250'
   },
   {
     name: 'The Bedazzler',
@@ -65,7 +65,7 @@ var $surfboards = [
     ' a magical experience. If you don\'t like Disney or Alladdin, just think babes',
     surfLevel: 'Intermediate-pro',
     waveType: 'Chest high to overhead',
-    price: '$300'
+    price: '$500'
   },
   {
     name: 'The Wave Bandit',
@@ -79,7 +79,7 @@ var $surfboards = [
     ' a good cause!',
     surfLevel: 'Intermediate-pro',
     waveType: 'knee high to head high',
-    price: '$300'
+    price: '$400'
   }
 ]
 
@@ -247,6 +247,8 @@ function renderDescription(surfboard) {
   $viewCart.addEventListener('click', function (event) {
     var $items = document.getElementById('items')
     $items.innerHTML = ''
+    var $quantityTotal = document.getElementById('quantity-total')
+    $quantityTotal.textContent = 'Subtotal' + ' (' + getCartQuantity(cart) + ')'
     var $subtotal = document.getElementById('subtotal')
     $subtotal.textContent = getCartSubtotal(cart)
     var cartItems = getCartItems(cart)
