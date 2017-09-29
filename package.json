@@ -2,6 +2,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "start": "node index.js",
+    "engines": {
+      "node": "6.11.0"
+    },
     "lint": "run-p lint:*",
     "lint:html": "htmlhint ./**/*.html",
     "lint:css": "stylelint ./**/*.css",
@@ -22,5 +26,8 @@
     "npm-run-all": "4.0.2",
     "stylelint": "7.10.1",
     "stylelint-config-standard": "16.0.0"
+  },
+  "dependencies": {
+    "express": "^4.16.1"
   }
 }
