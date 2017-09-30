@@ -3,7 +3,7 @@ var $surfboards = [
   {
     name: 'The Shredder',
     panelType: 'panel-primary',
-    img: 'images/surfboard1.jpg',
+    img: 'images/Surfboard1.jpg',
     id: '0',
     description: 'Shredds in the morning, shredds in the evening. With \'The Shredder\' you will' +
     ' become a serious shreddaholic. If you like to look good and have fun while doing it, this' +
@@ -15,7 +15,7 @@ var $surfboards = [
   {
     name: 'The Articulator',
     panelType: 'panel-success',
-    img: 'images/surfboard2.jpg',
+    img: 'images/Surfboard2.jpg',
     id: '1',
     description: 'Have you ever had a problem with proving your point in an arguement? Ever had to deal' +
     ' with someone who just doesn\'t understand? Well we have the answer for you, The Articulator will' +
@@ -28,7 +28,7 @@ var $surfboards = [
   {
     name: 'The Opportunist',
     panelType: 'panel-info',
-    img: 'images/surfboard3.jpg',
+    img: 'images/Surfboard3.jpg',
     id: '2',
     description: 'You ever listenened that one Eminem song that talks about you only get one shot and to' +
     ' never let your chance go, otherwise something something watever is gona happen? Well we have an' +
@@ -42,7 +42,7 @@ var $surfboards = [
   {
     name: 'The Geriatric',
     panelType: 'panel-warning',
-    img: 'images/surfboard4.jpg',
+    img: 'images/Surfboard4.jpg',
     id: '3',
     description: 'The title says it all, \'The Geriatric\' will have your age turn into nothing but a' +
     ' number when your out in the water shredding. Young people will see your grey hair and think' +
@@ -56,7 +56,7 @@ var $surfboards = [
   {
     name: 'The Bedazzler',
     panelType: 'panel-danger',
-    img: 'images/surfboard5.jpg',
+    img: 'images/Surfboard5.jpg',
     id: '4',
     description: 'Bedazzle your way to glory on \'The Bedazzler\'. Do not let the flamboyant color fool you' +
     ' , this surfboard has the ability to mesmorize all walks of life, including the female species!' +
@@ -70,7 +70,7 @@ var $surfboards = [
   {
     name: 'The Wave Bandit',
     panelType: 'panel-default',
-    img: 'images/surfboard6.jpg',
+    img: 'images/Surfboard6.jpg',
     id: '5',
     description: 'Now here at Surf-azon, we don\'t condone stealing, its really just bad Karma after all, but if you\'re' +
     ' Going to steal, at least steal from the rich and give to the poor: yourself. \'The Wave Bandit\' will provide that' +
